@@ -1,0 +1,23 @@
+import re
+p = re.compile('\s*[\s*a-z\s*A-Z\s*0-9\s*#\s*.\s* / \s* ( \s* @ \s*)\s* , \s*]\s*+\s*')
+
+with open('ajit-1.txt','r', encoding='utf8') as f:
+    data = f.read().split(" ")
+
+output = []
+for i in data:
+    for j in i:
+        if p.match(j):
+            pass
+        else:
+            output.append(j)
+
+o = open('output.txt', 'w', encoding='utf8')
+for i in output:
+    if i == '।':
+        o.write('।')
+        o.write('\n')
+    else:
+        o.write(i)
+
+
